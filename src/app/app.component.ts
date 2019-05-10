@@ -7,8 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  
-  // name:string = 'Zandra';
+
+  name:string = 'Zandra';
 
   // constructor(){
   //   this.changeName('Elena');
