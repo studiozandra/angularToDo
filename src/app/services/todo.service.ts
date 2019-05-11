@@ -3,6 +3,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'; // headers for s
 import { Todo } from '../models/Todo'; // the TS file which tells the proper format for each task
 import { Observable } from 'rxjs'; // short for Reactive eXtensions
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,6 +23,12 @@ export class TodoService {
   getTodos():Observable<Todo[]> { // similar to making requests in React with Axios
      return this.http.get<Todo[]>(`${this.todosUrl}${this.todosLimit}`); // since we made the URL a property we access it using 'this'. backtick and template literal syntax to add the limit of 5.
      
+  }
+
+  // toggle Completed (should be a put request but we can't actually update anything on the server)
+  toggleCompleted(todo: Todo):Observable<any>{
+    const url = `${this.todosUrl}/${todo.id}`;
+    return this.http.put(url, todo, httpOptions);
   }
 
 

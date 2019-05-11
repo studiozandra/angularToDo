@@ -1,4 +1,9 @@
-<app-todo-item *ngFor="let todo of todos" [todo]=todo> <!--iterating, passing in-->
+<app-todo-item 
+  *ngFor="let todo of todos" 
+  [todo]=todo 
+  (deleteTodo)="deleteTodo($event)"
+> 
+<!-- "catching" our emitted delete from todos.componenets.ts -->
   
 
 </app-todo-item>
