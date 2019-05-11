@@ -14,7 +14,7 @@ export class TodosComponent implements OnInit {
   constructor(private todoService:TodoService) { }
 
   ngOnInit() {
-    // this.todos = this.todoService.getTodos(); // This works for a hard-coded array. But we can't return from TodoService external JSON Placeholder website, asynchronous, like a promise, use Subscribe. think of it as .then
+    // this.todos = this.todoService.getTodos(); // This works for a hard-coded array. But we can't return from TodoService external JSON Placeholder website, bc it's asynchronous, like a promise, use Subscribe. think of it as .then
     this.todos = this.todoService.getTodos().subscribe(todos => {
       this.todos = todos; // set todos on line 12 equal to the todos that are being returned.
     });
