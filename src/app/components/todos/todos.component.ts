@@ -21,7 +21,11 @@ export class TodosComponent implements OnInit {
   }
 
   deleteTodo(todo:Todo) {
-    this.todos = this.todos.filter(t => t.id !== todo.id)
+    // Remove from UI
+    this.todos = this.todos.filter(t => t.id !== todo.id) // returning all todos WITHOUT that id
+
+    // Remove from server
+    this.todoService.deleteTodo(todo).subscribe();
     console.log('delete me')
   }
 
