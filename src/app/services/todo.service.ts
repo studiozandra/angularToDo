@@ -37,5 +37,10 @@ export class TodoService {
     return this.http.put(url, todo, httpOptions);
   }
 
+  //Add Todo - post request
+  addTodo(todo:Todo):Observable<Todo> {
+    return this.http.post<Todo>(this.todosUrl, todo, httpOptions);
+    
+  }
 
 }

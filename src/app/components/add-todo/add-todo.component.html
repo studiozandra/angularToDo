@@ -1,5 +1,6 @@
-<form class="form">
+<form class="form" (ngSubmit)="onSubmit()">
   <input type="text" name="title" [(ngModel)]="title" placeholder="Add Todo...">
   <input type="submit" value="Submit" class="btn">
-</form>
 <!-- must use forms module in app.module.ts -->
+<!-- must also add this selector to todos.component.html file -->
+</form>
