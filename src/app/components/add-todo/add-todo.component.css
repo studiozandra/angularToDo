@@ -1,5 +1,5 @@
 .form {
-    display: text;
+    display: flex;
 }
 
 .form input[type='text'] {
