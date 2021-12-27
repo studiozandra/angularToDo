@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Todo } from '../../models/Todo';
+import { Todo } from '../../models/TodoFormat';
 import { TodoService } from '../../services/todo.service';
 
 @Component({
@@ -9,9 +9,9 @@ import { TodoService } from '../../services/todo.service';
 })
 export class TodosComponent implements OnInit {
 
-  todos:Todo[];
+  todos: Todo[];
 
-  constructor(private todoService:TodoService) { }
+  constructor(private todoService: TodoService) { }
 
   ngOnInit() {
     // this.todos = this.todoService.getTodos(); // This works for a hard-coded array. But we can't return from TodoService external JSON Placeholder website, bc it's asynchronous, like a promise, use Subscribe. think of it as .then
@@ -20,7 +20,7 @@ export class TodosComponent implements OnInit {
     });
   }
 
-  deleteTodo(todo:Todo) {
+  deleteTodo(todo: Todo) {
     // Remove from UI
     this.todos = this.todos.filter(t => t.id !== todo.id) // returning all todos WITHOUT that id
 
@@ -29,7 +29,7 @@ export class TodosComponent implements OnInit {
     console.log('delete me');
   }
 
-  addTodo(todo:Todo) {
+  addTodo(todo: Todo) {
     // send a post request to through the service, and after response, push to UI
     this.todoService.addTodo(todo).subscribe(todo => {
       this.todos.push(todo);

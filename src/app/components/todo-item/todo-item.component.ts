@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';  // we need to emit an event upwards in order to delete a task from todos.component.html
 import { TodoService } from '../../services/todo.service'; // and inject it on line 13
 
-import { Todo } from 'src/app/models/Todo';
+import { Todo } from 'src/app/models/TodoFormat';
 
 @Component({
   selector: 'app-todo-item', //use this in the component's html file
@@ -12,7 +12,7 @@ export class TodoItemComponent implements OnInit {
   @Input() todo: Todo;
   @Output() deleteTodo: EventEmitter<Todo> = new EventEmitter(); // we will "catch" this in the todos.componenthtml file
 
-  constructor(private todoService:TodoService) { }
+  constructor(private todoService: TodoService) { }
 
   ngOnInit() {
   }
